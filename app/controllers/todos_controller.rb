@@ -6,8 +6,7 @@ class TodosController < ApplicationController
 
   def create
     # replace attr_accessible
-    @todo = Todo.new todo_params 
-    #@todo = current_user.todos.create params[:todo].permit(:name)
+    @todo = current_user.todos.new params[:todo].permit(:name)
     if @todo.save
       redirect_to todos_path
     else 
@@ -20,7 +19,6 @@ class TodosController < ApplicationController
   end
 
   def index
-    @todos = Todo.where( :owner_email => current_email )
-    #@todos = current_user.todos
+    @todos = current_user.todos
   end
 end
