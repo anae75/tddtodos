@@ -1,9 +1,9 @@
 <ul class="todos">
-<li>
   <% @todos.each do |todo| %>
-    <%= todo.name %>
-  <% end %>
+<li class="<%= 'completed' if todo.completed? %>">
+    <%= todo.name %> <%= link_to 'Mark complete', todo_completion_path(todo), method: :post %>
 </li>
+  <% end %>
 </ul>
 
 
