@@ -32,6 +32,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+# high_voltage for easily creating static pages
+gem 'high_voltage'
 group :development, :test do
   gem 'rspec-rails', '~> 2.14.0' 
   gem 'capybara', '~> 2.1.0'
