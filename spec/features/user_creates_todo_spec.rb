@@ -1,10 +1,7 @@
 require  'spec_helper'
 
 def create_todo_named(name)
-  visit root_path
-  click_on 'Sign in'
-  fill_in 'Email', with: 'me@example.com'
-  click_on 'Submit'
+  sign_in_as 'me@example.com'
   click_on 'Add new todo'
   fill_in 'Name', with: name
   click_on 'Submit'
