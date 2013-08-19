@@ -7,6 +7,6 @@ feature 'User only sees own todos' do
 
     sign_in_as 'me@example.com'
     
-    expect(page).not_to have_css('.todos li', text: 'conquer world')
+    expect(page).not_to display_todo_named('conquer world')
   end
 end
