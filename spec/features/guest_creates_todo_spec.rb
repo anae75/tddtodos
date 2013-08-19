@@ -8,5 +8,6 @@ feature 'Guest creates todo' do
     click_on 'Submit'
 
     expect(page).to have_css('.todos li', text: 'Buy milk')
+    #puts current_path
   end
 end
