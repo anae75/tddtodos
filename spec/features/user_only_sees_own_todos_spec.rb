@@ -7,6 +7,7 @@ feature 'User only sees own todos' do
 
     sign_in_as 'me@example.com'
     
-    expect(page).not_to display_todo_named('conquer world')
+    todo_on_page = TodoOnPage.new('conquer world')
+    expect(todo_on_page).not_to be_visible 
   end
 end

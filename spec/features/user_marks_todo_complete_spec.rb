@@ -2,20 +2,24 @@ require  'spec_helper'
 
 feature 'User marks todo complete' do 
   scenario 'mark todo complete' do
-    create_todo_named 'raise hell'
+    sign_in
+
+    todo_on_page = TodoOnPage.new('raise hell')
+    todo_on_page.create
+    todo_on_page.mark_complete
     
-    mark_todo_complete 'raise hell'
-
-    expect(page).to have_completed_todo('raise hell')
+    expect(todo_on_page).to be_completed
   end
 
-  def mark_todo_complete(name)
-    find('.todos li', text: name).click_on 'Mark complete'
-  end
-
-  #   "expect to have ..." ==> "has ... ?"
-  def have_completed_todo(name)
-    have_css('.todos li.completed', text: name)
-  end
+  # XXX superseded by TodoOnPage
+  #
+  #  def mark_todo_complete(name)
+  #    find('.todos li', text: name).click_on 'Mark complete'
+  #  end
+  #  
+  #     "expect to have ..." ==> "has ... ?"
+  #  def have_completed_todo(name)
+  #    have_css('.todos li.completed', text: name)
+  #  end
 
 end
