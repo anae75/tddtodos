@@ -44,3 +44,5 @@ RSpec.configure do |config|
   # pull in feature helpers only for feature tests
   config.include Features, type: :feature
 end
+
+Capybara.javascript_driver = :webkit
